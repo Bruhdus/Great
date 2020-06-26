@@ -29,3 +29,7 @@ a i {
 .h1{
   text-align: center;
 }
+
+#search-form input{
+  margin-top: 0.5rem;
+}
