@@ -26,10 +26,17 @@ a i {
   background-color: lightcoral;
 }
 
-.h1{
-  text-align: center;
+#personal-background{
+  height: 400px;
+  background: url(../images/background_one.jpg) no-repeat center center fixed; 
+  background-size: cover;
 }
 
-#search-form input{
-  margin-top: 0.5rem;
+#username{
+  color: white;
+  font-size: 60px;
+  text-shadow: 0 0 10px #000000, 0 0 3px #000000;
+  text-align: center;
+  margin: auto;
+  padding-top: 300px;
 }
