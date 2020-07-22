@@ -30,6 +30,11 @@ a i {
 
 #search-button{
   border: none;
+  background-color:#272727;
+  color: #53ea9d ;
+}
+
+#search-button:hover{
   background-color: #53ea9d;
   color: #272727;
 }
@@ -69,4 +74,16 @@ a i {
 
 #header{
   color: #53ea9d;
+}
+
+#profile-scroll-display{
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  display: block;
+}
+
+#profile-scroll-block{
+  padding: 10px;
 }
