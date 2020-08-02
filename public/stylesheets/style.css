@@ -76,14 +76,33 @@ a i {
   color: #53ea9d;
 }
 
-#profile-scroll-display{
-  object-fit: cover;
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  display: block;
+#profile-scroll-view{
+  display: flex;
+  overflow: auto;
+  flex-wrap: nowrap;
 }
 
-#profile-scroll-block{
+#profile-scroll-display{
+  flex: 0 0 auto;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
   padding: 10px;
+}
+
+#current-profile-display{
+  padding: 20px;
+  border: #53ea9d;
+}
+
+#current-profile-img{
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+}
+
+#current-profile-username{
+  vertical-align: baseline;
 }
