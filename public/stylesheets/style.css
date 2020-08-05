@@ -93,7 +93,9 @@ a i {
 
 #current-profile-display{
   padding: 20px;
-  border: #53ea9d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #current-profile-img{
@@ -104,5 +106,5 @@ a i {
 }
 
 #current-profile-username{
-  vertical-align: baseline;
+  float: right;
 }
