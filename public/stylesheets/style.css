@@ -1,8 +1,13 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #272727;
   color: #53ea9d;
+}
+
+#navbar{
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 a {
@@ -107,4 +112,15 @@ a i {
 
 #current-profile-username{
   float: right;
+}
+#loginPage{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#form{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }

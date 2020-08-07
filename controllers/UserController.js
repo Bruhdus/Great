@@ -26,6 +26,8 @@ class UserController{
         AraDTApp.get('/account', this.getAccount);
         AraDTApp.post('/account', this.updateAccount);
         AraDTApp.post('/password', this.updatePassword);
+        AraDTApp.get('/login', this.getLogin);
+        AraDTApp.get('/register', this.getRegister);
     }
 
     /**
@@ -114,12 +116,13 @@ class UserController{
         }
     };
 
-    /* YOU NEED TO ADD COMMENTS FROM HERE ON */
+
 
     updateAccount =  async (request, response) => {
 
         var currentUser = AraDTUserModel.getCurrentUser();
         if (currentUser) {
+            //tries to see if the update is possible 
             try{
                 await AraDTUserModel.update(request, response)
                     .then(() => {
@@ -130,10 +133,12 @@ class UserController{
                         response.render('account');
                     });
             } catch(errors) {
+                // form has failed to update
                 response.locals.errors.profile = errors;
                 response.render('account');
             }
         } else {
+            //if all doesnt work it logs the user out
             this.logout(request, response);
         }
 
@@ -143,6 +148,7 @@ class UserController{
 
         var currentUser = AraDTUserModel.getCurrentUser();
         if (currentUser) {
+            //tries to update password
             try{
                 await AraDTUserModel.updatePassword(request, response)
                     .then(() => {
@@ -153,10 +159,12 @@ class UserController{
                         response.render('account');
                     });
             } catch(errors) {
+                // updating password failed
                 response.locals.errors.password = errors;
                 response.render('account');
             }
         } else {
+            // if all doesnt work it logs out the user
             this.logout(request, response);
         }
 
@@ -171,6 +179,7 @@ class UserController{
     }
 
     logout = async (request, response) => {
+        // logs out user and shows an error pop on screen
         request.session.errors.general = ['You have been logged out'];
         response.locals.loggedin = false;
         request.session.destroy();
@@ -179,6 +188,14 @@ class UserController{
             }).catch(function(error) {
                 response.redirect('/');
             });
+    }
+
+    getLogin(request, response){
+        response.render('login');
+    }
+
+    getRegister(request, response){
+        response.render('register');
     }
 
 }
