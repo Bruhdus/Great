@@ -1,22 +1,21 @@
+<% if (locals.errors && locals.errors.login) { %>
+	<% locals.errors.login.forEach(function(error) { %>
+		<p class="alert alert-primary" role="alert"><%= error %></p>
+	<% }) %>
+<% } %>
+ 
 <%- include('partials/header'); %> 
-<div id="loginPage">
+<div id="login-page">
     <h1 class="navbar-brand font-weight-bold text-uppercase" id="logo">Great</h1>
-    <div>
+    <div id="login-form">
         <form action="/login" method="post" id="form">
             <input type="email" name="email" placeholder="Email" value="parkjeesung77@gmail.com">
             <input type="password" name="password" placeholder="Password" value="testing">
+            <br>
             <button id="login-button" type="submit">Login</button>
-            <a id="register" href="/register">Don't have an account?</a>
+            <br>
+            <a id="register-link" href="/register">Don't have an account?</a>
         </form>
-    </div>
-
-    <div class='login'>
-        <h2>Register</h2>
-        <input name='username' placeholder='Username' type='text'>
-        <input id='pw' name='password' placeholder='Password' type='password'>
-        <input name='email' placeholder='E-Mail Address' type='text'>
-        <input class='animated' type='submit' value='Register'>
-        <a class='forgot' href='#'>Already have an account?</a>
     </div>
 </div>
 <%- include('partials/footer'); %>

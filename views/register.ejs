@@ -1,5 +1,10 @@
+<% if (locals.errors && locals.errors.register) { %>
+	<% locals.errors.register.forEach(function(error) { %>
+		<p class="alert alert-primary" role="alert"><%= error %></p>
+	<% }) %>
+<% } %>
 <%- include('partials/header'); %> 
-<div id="loginPage">
+<div id="register-page">
     <h1 class="navbar-brand font-weight-bold text-uppercase" id="logo">Great</h1>
     <div>
         <form action="/register" method="post" id="form">
