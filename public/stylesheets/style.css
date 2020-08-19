@@ -10,12 +10,16 @@ body {
   padding-right: 50px;
 }
 
+pre {
+  color: #eee;
+}
+
 a {
   color: #53ea9d;
 }
 
 a:hover {
- color: #def7ea;
+ color: white;
 }
 
 a i {
@@ -113,17 +117,6 @@ a i {
 #current-profile-username{
   float: right;
 }
-#loginPage{
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-#login-form{
-  width: 350px;
-  border-radius: 40px;
-  background-color: #555555;
-}
 
 input {
   width: 300px;
@@ -135,7 +128,8 @@ input {
   padding-top: 30px;
 }
 
-#login-button{
+#login-button, #register-button{
+  color: white;
   background: #53ea9d;
   border: none;
   border-radius: 10px;
@@ -143,17 +137,7 @@ input {
   height: 30px;
 }
 
-#register-link{
-  padding-bottom: 20px;
-  color: white;
-}
-
-#register-link:hover{
+#login-button:hover, #register-button:hover{
   color: #53ea9d;
-}
-
-#form{
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+  background-color: white;
 }

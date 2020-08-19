@@ -1,18 +1,18 @@
-<% if (locals.errors && locals.errors.register) { %>
-	<% locals.errors.register.forEach(function(error) { %>
-		<p class="alert alert-primary" role="alert"><%= error %></p>
-	<% }) %>
-<% } %>
 <%- include('partials/header'); %> 
-<div id="register-page">
+<div id="register-page" class="h-100 d-flex justify-content-center align-items-center flex-column">
+    <% if (locals.errors && locals.errors.register) { %>
+        <% locals.errors.register.forEach(function(error) { %>
+            <p class="alert alert-primary" role="alert"><%= error %></p>
+        <% }) %>
+    <% } %>
     <h1 class="navbar-brand font-weight-bold text-uppercase" id="logo">Great</h1>
-    <div>
-        <form action="/register" method="post" id="form">
+    <div id="form">
+        <form action="/register" method="post" class="d-flex align-items-center flex-column">
             <input type="email" name="email" placeholder="Email">
             <input type="password" name="password" placeholder="Password">
             <input type="password" name="passwordConfirm" placeholder="Confirm Password">
-            <button type="submit">Register</button>
-            <a href="/login">Login</a>
+            <button type="submit" id="register-button" class="mt-3">Register</button>
+            <a href="/" class="mt-3 mb-3">Login</a>
         </form>
     </div>
 </div>
