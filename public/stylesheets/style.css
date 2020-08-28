@@ -50,6 +50,7 @@ a i {
 
 #logo{
   font-size: 50px;
+  text-align: center;
 }
 
 #personal-background{
@@ -128,7 +129,7 @@ input {
   padding-top: 30px;
 }
 
-#login-button, #register-button{
+#login-button, #register-button, #update-button, #update-password-button{
   color: white;
   background: #53ea9d;
   border: none;
@@ -137,7 +138,21 @@ input {
   height: 30px;
 }
 
-#login-button:hover, #register-button:hover{
+#login-button:hover, #register-button:hover, #update-button:hover, #update-password-button:hover{
   color: #53ea9d;
   background-color: white;
+}
+
+.custom-file-label::after{
+  background: #53ea9d;
+  color: white;
+}
+
+#avatar{
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
 }

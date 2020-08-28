@@ -6,21 +6,24 @@
             <p class="alert alert-primary" role="alert"><%= error %></p>
         <% }) %>
     <% } %>
-    <h1 class="navbar-brand font-weight-bold text-uppercase" id="logo">Great</h1>
-    <div>
-        <div class="h-25 w-25 rounded circle">
-            <img src="<%= avatar %>" alt="avatar" class="minsize-3vw" id="avatar">
-        </div>
-        <form action="/account" method="post" enctype="multipart/form-data">
+    <h1 class="navbar-brand font-weight-bold text-uppercase d-flex justify-content-center p-5" id="logo">Great</h1>
+    <div class="d-flex align-items-center flex-column">
+        
+        <img src="<%= avatar %>" alt="avatar" id="avatar">
+
+        <form action="/account" method="post" enctype="multipart/form-data" class="d-flex align-items-center flex-column">
+            <div class="input-group mt-3">
+                <input type="file" class="custom-file-input" name="avatar" id="avatar-upload">
+                <label class="custom-file-label">Choose file</label>
+            </div>
             <input type="text" name="displayName" placeholder="Display Name" value="<%= locals.user.displayName %>">
             <input type="email" name="email" placeholder="Email" value="<%= locals.user.email %>">
-            <input type="file" name="avatar">
-            <button type="submit">Update</button>
+            <button type="submit" id="update-button" class="mt-3">Update</button>
         </form>
-        <form action="/password" method="post">
+        <form action="/password" method="post" class="d-flex align-items-center flex-column">
             <input type="password" name="password" placeholder="New Password">
             <input type="password" name="passwordConfirm" placeholder="Confirm Password">
-            <button type="submit">Update Password</button>
+            <button type="submit" id="update-password-button" class="mt-3">Update Password</button>
         </form>
     </div>
 </div>
