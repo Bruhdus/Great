@@ -4,6 +4,10 @@ body {
   color: #53ea9d;
 }
 
+button.focus, button:focus{
+  outline: 0;
+}
+
 #navbar{
   padding-top: 50px;
   padding-left: 50px;
