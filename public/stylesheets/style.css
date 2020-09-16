@@ -176,3 +176,22 @@ input {
   border-radius: 50%;
   object-fit: cover;
 }
+
+#channel-main{
+display: flex;
+justify-content: center;
+flex-direction: row;
+}
+
+#chat-block{
+  width: 50%;
+  height: 50%;
+}
+
+#chat-area{
+  background: #636363;
+}
+
+#channels-sidebar{
+  width: 20%;
+}
