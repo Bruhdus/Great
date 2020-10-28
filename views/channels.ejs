@@ -6,6 +6,9 @@ var messages = locals.messages
 var user = locals.user
 var participants = (locals.channel.inUsers) ? locals.channel.inUsers : false
 var users = locals.channels.users
+var channels = locals.channels
+var owned = ("owned" in  channels) ? channels.owned : false
+var subscribed = ("subscribed" in  channels) ? channels.subscribed : false
 %> 
 <div id="channel-main" class="p-5 container-fluid h-100">
 	<div id="channels-sidebar">
@@ -30,6 +33,10 @@ var users = locals.channels.users
 			<form id="channel-create-form" action="/channels/add" method="post" enctype="multipart/form-data">
 				<input type="text" class="form-control" name="name" placeholder="Display Name" value="">
 				<input type="file" class="custom-file-input" name="avatar" id="avatar-upload">
+				<div class="custom-file">
+					<input type="file" name="avatar" class="custom-file-input" id="customFile">
+					<label class="custom-file-label" for="customFile">Choose file</label>
+				  </div>
 				<% if (users) { %>
 					<% users.forEach(function(user) { %>
 						<input class="user-check-input" id="user<%= user.id %>" type="checkbox" name="users" value="<%= user.id %>">
@@ -38,24 +45,34 @@ var users = locals.channels.users
 				<% } %>
 				<button id="update" type="submit">Create</button>
 			</form>
+			<div id="owned-channels" class="user-channels">
+				<h4>Your Channels</h4>
+			<% if (owned) { %>
+				<ul>
+				<% owned.forEach(function(channel) { %>
+					<li>
+						<img src="<%= channel.image %>" alt="<%= channel.name %>">
+						<a href="/channel/<%= channel.id %>/"><%= channel.name %></a>
+						<a href="/channels/delete/<%= channel.id %>/"><i class="fa fa-trash" aria-hidden="true"></i></a>
+					</li>
+				<% }) %>
+				</ul>
+			<% }  %>
+			</div>
+			<div id="subscribed-channels" >
+				<h4>Subscribed Channels</h4>
+			<% if (subscribed) { %>
+				<ul>
+				<% subscribed.forEach(function(channel) { %>
+					<li>
+						<img src="<%= channel.image %>" alt="<%= channel.name %>">
+						<a href="/channel/<%= channel.slug %>/"><%= channel.name %></a>
+					</li>
+				<% }) %>
+				</ul>
+			<% }  %>
+			</div>
 		</div>
 	</div>  
-	<div id="chat-block">
-		<main role="main" id="chat-area">
-			<h1><%= channels.name %></h1>
-			<% var users = locals.channels.users %>
-			<form id="channel-create-form" action="/channels/add" method="post" enctype="multipart/form-data">
-				<input type="text" class="form-control" name="name" placeholder="Display Name" value="">
-				<input type="file" class="custom-file-input" name="avatar" id="avatar-upload">
-				<% if (users) { %>
-					<% users.forEach(function(user) { %>
-						<input class="user-check-input" id="user<%= user.id %>" type="checkbox" name="users" value="<%= user.id %>">
-						<p><%= user.name %></p>
-					<% }) %>
-				<% } %>
-				<button id="update" type="submit">Create</button>
-			</form> 
-		</main>
-	</div>
 </div><!-- end #main -->
 <%- include('partials/footer'); %>
